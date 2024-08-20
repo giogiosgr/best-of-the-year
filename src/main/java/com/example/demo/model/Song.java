@@ -1,4 +1,4 @@
-package com.example.demo.controller;
+package com.example.demo.model;
 
 public class Song {
 	
@@ -12,6 +12,14 @@ public class Song {
 		this.artists = artists;
 		this.title = title;
 		this.year = year;
+	}
+	
+	public int getID() {
+		return this.id;
+	}
+	
+	public String getTitle() {
+		return this.title;
 	}
 	
 	@Override
