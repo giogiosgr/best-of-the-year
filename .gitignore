@@ -2,3 +2,4 @@ bin/
 *.class
 .settings/
 target/classes/META-INF/maven/org.newdemo.bept/best-of-the-year/pom.properties
+/target/classes/templates
