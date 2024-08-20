@@ -15,7 +15,7 @@ public class HomeController {
     @GetMapping("/bestOf")  
     public String bestOf(@RequestParam String name, Model model) {
         model.addAttribute("name", name);
-        return "bestOf";2
+        return "bestOf";
     }
     
     private List<Movie> getBestMovies() {
@@ -35,15 +35,17 @@ public class HomeController {
     }
     
     @GetMapping("/bestMovies")  
-    public String bestMovies(@RequestParam String name, Model model) {
-        model.addAttribute("movieList", getBestMovies());
-        return "bestOf";
+    public String bestMovies(Model model) {
+        model.addAttribute("movieList", getBestMovies().get(0).toString() + 
+        		". " + getBestMovies().get(1).toString() + ". " + getBestMovies().get(2).toString());
+        return "bestMovies";
     }
     
     @GetMapping("/bestSongs")  
-    public String bestSongs(@RequestParam String name, Model model) {
-        model.addAttribute("songList", getBestSongs());
-        return "bestOf";
+    public String bestSongs(Model model) {
+        model.addAttribute("songList", getBestSongs().get(0).toString() + 
+        		". " + getBestSongs().get(1).toString() + ". " + getBestSongs().get(2).toString());
+        return "bestSongs";
     }
 
 }
