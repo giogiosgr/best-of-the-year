@@ -10,7 +10,7 @@
 </head>
 <body>
 	
-<nav th:replace="fragments :: navbar(${name})"></nav>
+<nav th:replace="fragments :: navbar('')"></nav>
 
 <div th:object="${movie}" class="list-group mx-4 my-4">
 	<p>Title: <span th:text="*{title}"></span></p>
