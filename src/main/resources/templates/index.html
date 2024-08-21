@@ -10,13 +10,7 @@
 </head>
 <body>
 
-<nav class="navbar bg-body-tertiary">
-	 <form class="container-fluid justify-content-start">
-	   <a class="navbar-brand">BEST OF</a>
-	   <a href="http://localhost:8080/bestMovies"><button class="btn btn-outline-success me-2" type="button">Movies</button></a>
-	   <a href="http://localhost:8080/bestSongs"><button class="btn btn-outline-success me-2" type="button">Songs</button></a>
-	 </form>
-</nav>
+<nav th:replace="fragments :: navbar"></nav>
 
 <div class="card mx-3 my-3" style="width: 18rem;">
    <img th:src="@{/img/dummy_300x200_ffffff_cccccc.png}" class="card-img-top" alt="...">
