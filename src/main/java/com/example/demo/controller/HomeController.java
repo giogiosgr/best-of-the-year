@@ -53,6 +53,13 @@ public class HomeController {
         return "bestSongs";
     }
     
+    @GetMapping("/home")
+    public String index(Model model) {
+        
+    	return "index";
+    }
+
+    /*  
     @GetMapping("/movies/{id}")
     public String movie(@PathVariable("id") int id, Model model) {
     	String title = "";
@@ -77,6 +84,6 @@ public class HomeController {
     	}	
     	model.addAttribute("title", title);
     	return "titleByID";
-    }
-
+    */
+    
 }
