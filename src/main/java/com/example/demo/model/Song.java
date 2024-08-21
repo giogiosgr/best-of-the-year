@@ -22,6 +22,14 @@ public class Song {
 		return this.title;
 	}
 	
+	public String getArtists() {
+		return this.artists;
+	}
+	
+	public String getYear() {
+		return this.year;
+	}
+	
 	@Override
 	public String toString() {
 		return String.format("%d , %s , %s , %s", this.id, this.title, this.artists, this.year);

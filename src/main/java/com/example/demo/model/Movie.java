@@ -22,6 +22,14 @@ public class Movie {
 		return this.title;
 	}
 	
+	public String getDirector() {
+		return this.director;
+	}
+	
+	public String getYear() {
+		return this.year;
+	}
+	
 	@Override
 	public String toString() {
 		return String.format("%d , %s , %s , %s", this.id, this.title, this.director, this.year);

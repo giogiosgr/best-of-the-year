@@ -9,8 +9,10 @@
 <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.3.3/css/bootstrap.min.css}"/>
 </head>
 <body>
+	
+<nav th:replace="fragments :: navbar(${name})"></nav>
 
-<div th:object="${song}">
+<div th:object="${song}" class="list-group mx-4 my-4">
 	<p>Title: <span th:text="*{title}"></span></p>
 	<p>Artists: <span th:text="*{artists}"></span></p>
 	<p>Year: <span th:text="*{year}"></span></p>
