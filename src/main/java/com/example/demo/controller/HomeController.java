@@ -5,7 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-//import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.example.demo.model.Movie;
 import com.example.demo.model.Song;
@@ -57,6 +57,42 @@ public class HomeController {
     public String index(@RequestParam String name, Model model) {
     	model.addAttribute("name", name);
     	return "index";
+    }
+    
+    @GetMapping("/movies")
+    public String movies(Model model) {
+    	List<Movie> movieList = getBestMovies();
+    	model.addAttribute("list", movieList);
+    	return "movieList";
+    }
+    
+    @GetMapping("/songs")
+    public String songs(Model model) {
+    	List<Song> songList = getBestSongs();
+    	model.addAttribute("list", songList);
+    	return "songList";
+    }
+    
+    @GetMapping("/movieDetails/{id}")
+    public String movieDetails(@PathVariable("id") int id, Model model) {
+    	for (Movie movie : getBestMovies()) {
+    		if (movie.getID() == id) {
+    			model.addAttribute("movie", movie);
+    			break;
+    		}		
+    	}
+    	return "movieDetails";
+    }
+    
+    @GetMapping("/songDetails/{id}")
+    public String songDetails(@PathVariable("id") int id, Model model) {
+    	for (Song song : getBestSongs()) {
+    		if (song.getID() == id) {
+    			model.addAttribute("song", song);
+    			break;
+    		}		
+    	}
+    	return "songDetails";
     }
 
     /*  

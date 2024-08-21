@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Home</title>
+<title>List</title>
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,14 +10,11 @@
 </head>
 <body>
 
-<nav th:replace="fragments :: navbar"></nav>
-
-<div class="card mx-4 my-4" style="width: 18rem;">
-   <img th:src="@{/img/dummy_300x200_ffffff_cccccc.png}" class="card-img-top" alt="...">
-   <div class="card-body">
-     <p th:text="'Best Of by ' + ${name}" class="card-text"></p>
-   </div>
+<div th:object="${song}">
+	<p>Title: <span th:text="*{title}"></span></p>
+	<p>Artists: <span th:text="*{artists}"></span></p>
+	<p>Year: <span th:text="*{year}"></span></p>
 </div>
-	
+
 </body>
 </html>
