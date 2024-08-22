@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<nav th:fragment="navbar(name)" class="navbar bg-body-tertiary">
+<nav th:fragment="navbar" class="navbar bg-body-tertiary">
 	 <form class="container-fluid justify-content-start">
 	   <a th:href="@{http://localhost:8080/home(name=${name})}" class="navbar-brand">BEST OF</a>
 	   <a href="http://localhost:8080/movies"><button class="btn btn-outline-success me-2" type="button">Movies</button></a>

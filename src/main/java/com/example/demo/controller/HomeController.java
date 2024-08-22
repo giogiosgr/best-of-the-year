@@ -17,6 +17,12 @@ import java.util.*;
 @RequestMapping("/")
 public class HomeController {
 	
+	/* La variabile finalName conserverà, per tutto il tempo di esecuzione, 
+	 * il nome passato come parametro alla pagina home alla prima apertura	   
+	 */
+	private String finalName = "";
+	private boolean first = true;
+	
 	// Definizione metodi che restituiscono la lista di oggetti
 
     private List<Movie> getBestMovies() {
@@ -43,7 +49,11 @@ public class HomeController {
      */
     @GetMapping("/home")
     public String index(@RequestParam String name, Model model) {
-    	model.addAttribute("name", name);
+    	if (first) {
+    		finalName = name;
+    	    first = false;
+    	}
+    	model.addAttribute("name", finalName);
     	return "index";
     }
     
