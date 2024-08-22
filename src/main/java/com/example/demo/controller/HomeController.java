@@ -16,13 +16,9 @@ import java.util.*;
 @Controller
 @RequestMapping("/")
 public class HomeController {
+	
+	// Definizione metodi che restituiscono la lista di oggetti
 
-    @GetMapping("/bestOf")  
-    public String bestOf(@RequestParam String name, Model model) {
-        model.addAttribute("name", name);
-        return "bestOf";
-    }
-    
     private List<Movie> getBestMovies() {
     	List<Movie> movieList = new ArrayList<Movie>();
     	movieList.add(new Movie(1, "Titanic", "James Cameron", "1997"));
@@ -39,25 +35,19 @@ public class HomeController {
     	return songList;
     }
     
-    @GetMapping("/bestMovies")  
-    public String bestMovies(Model model) {
-        model.addAttribute("movieList", getBestMovies().get(0).toString() + 
-        		". " + getBestMovies().get(1).toString() + ". " + getBestMovies().get(2).toString());
-        return "bestMovies";
-    }
-    
-    @GetMapping("/bestSongs")  
-    public String bestSongs(Model model) {
-        model.addAttribute("songList", getBestSongs().get(0).toString() + 
-        		". " + getBestSongs().get(1).toString() + ". " + getBestSongs().get(2).toString());
-        return "bestSongs";
-    }
-    
+    /**
+     * Apertura della pagina Home col nome come parametro
+     * @param name
+     * @param model
+     * @return index.html
+     */
     @GetMapping("/home")
     public String index(@RequestParam String name, Model model) {
     	model.addAttribute("name", name);
     	return "index";
     }
+    
+    // Metodi che restituiscono oggetti al model
     
     @GetMapping("/movies")
     public String movies(Model model) {
@@ -94,6 +84,30 @@ public class HomeController {
     	}
     	return "songDetails";
     }
+    
+    // Metodi che restituiscono stringhe al model
+    
+    @GetMapping("/bestOf")  
+    public String bestOf(@RequestParam String name, Model model) {
+        model.addAttribute("name", name);
+        return "bestOf";
+    }
+    
+    @GetMapping("/bestMovies")  
+    public String bestMovies(Model model) {
+        model.addAttribute("movieList", getBestMovies().get(0).toString() + 
+        		". " + getBestMovies().get(1).toString() + ". " + getBestMovies().get(2).toString());
+        return "bestMovies";
+    }
+    
+    @GetMapping("/bestSongs")  
+    public String bestSongs(Model model) {
+        model.addAttribute("songList", getBestSongs().get(0).toString() + 
+        		". " + getBestSongs().get(1).toString() + ". " + getBestSongs().get(2).toString());
+        return "bestSongs";
+    }
+    
+    // Metodi sotto commento che restituiscono al model stringhe relative agli oggetti scelti tramite ID
 
     /*  
     @GetMapping("/movies/{id}")
