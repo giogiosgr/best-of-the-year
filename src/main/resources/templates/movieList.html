@@ -13,7 +13,7 @@
 <nav th:replace="fragments :: navbar"></nav>
 
   <div class="list-group mx-4 my-4">
-    <a th:each="obj : ${list}" th:text="${obj.getTitle()}" th:href="@{|/movieDetails/${obj.getID()}|}" class="list-group-item list-group-item-action"></a>
+    <a th:each="obj : ${list}" th:text="${obj.getTitle()}" th:href="@{/movieDetails/{id}(id=${obj.getID()})}" class="list-group-item list-group-item-action"></a>
   </div>
 
 </body>
